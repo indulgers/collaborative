@@ -1,0 +1,36 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# production
+build
+dist
+
+# misc
+.DS_Store
+*.pem
+*.crt
+*.key
+
+# debug
+*.log
+
+# typescript
+*.tsbuildinfo
+
+# editor folders
+.idea
+
+# local env files
+.env*.local
+
+# ignore folders
+.git
+.husky
+
+# npm files
+.npmrc
