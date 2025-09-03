@@ -11,14 +11,13 @@ const HocuspocusDemo: React.FC = () => {
   const [sharedText, setSharedText] = useState('')
 
   useEffect(() => {
-    // 初始化 Hocuspocus provider
     const hocuspocusProvider = new HocuspocusProvider({
-      url: 'ws://localhost:1234', // 你需要启动一个 Hocuspocus 服务器
+      url: 'ws://localhost:1234',
       name: 'demo-document',
       document: doc,
+      token: 'super-secret-token', // 传递鉴权 token
     })
 
-    // 监听连接状态
     hocuspocusProvider.on('connect', () => {
       setIsConnected(true)
     })
@@ -27,16 +26,24 @@ const HocuspocusDemo: React.FC = () => {
       setIsConnected(false)
     })
 
+    hocuspocusProvider.on('sync', (isSynced: boolean) => {
+      // 文档同步完成
+      if (isSynced) {
+        console.log('文档已同步')
+      }
+    })
+
+    hocuspocusProvider.on('error', (error: any) => {
+      // 处理错误
+      console.error('协作错误:', error)
+    })
+
     setProvider(hocuspocusProvider)
 
-    // 获取共享文本
     const yText = doc.getText('shared-text')
-    
-    // 监听文本变化
     const updateSharedText = () => {
       setSharedText(yText.toString())
     }
-    
     yText.observe(updateSharedText)
     updateSharedText() // 初始化
 

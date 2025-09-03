@@ -1,0 +1,97 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  .tiptap-editor .ProseMirror {
+    @apply outline-none min-h-[500px] p-4;
+  }
+
+  .tiptap-editor .ProseMirror > * + * {
+    @apply mt-4;
+  }
+
+  .tiptap-editor .ProseMirror > *:first-child {
+    @apply mt-0;
+  }
+
+  /* Lists */
+  .tiptap-editor .ProseMirror ul,
+  .tiptap-editor .ProseMirror ol {
+    @apply pl-4 my-5;
+  }
+
+  .tiptap-editor .ProseMirror ul {
+    @apply list-disc;
+  }
+
+  .tiptap-editor .ProseMirror ol {
+    @apply list-decimal;
+  }
+
+  .tiptap-editor .ProseMirror li p {
+    @apply my-1;
+  }
+
+  /* Headings */
+  .tiptap-editor .ProseMirror h1,
+  .tiptap-editor .ProseMirror h2,
+  .tiptap-editor .ProseMirror h3,
+  .tiptap-editor .ProseMirror h4,
+  .tiptap-editor .ProseMirror h5,
+  .tiptap-editor .ProseMirror h6 {
+    @apply leading-tight mt-10;
+  }
+
+  .tiptap-editor .ProseMirror h1,
+  .tiptap-editor .ProseMirror h2 {
+    @apply mt-14 mb-6;
+  }
+
+  .tiptap-editor .ProseMirror h1 {
+    @apply text-2xl;
+  }
+
+  .tiptap-editor .ProseMirror h2 {
+    @apply text-xl;
+  }
+
+  .tiptap-editor .ProseMirror h3 {
+    @apply text-lg;
+  }
+
+  .tiptap-editor .ProseMirror h4,
+  .tiptap-editor .ProseMirror h5,
+  .tiptap-editor .ProseMirror h6 {
+    @apply text-base;
+  }
+
+  /* Code */
+  .tiptap-editor .ProseMirror code {
+    @apply bg-purple-100 text-black px-1 py-0.5 rounded text-sm;
+  }
+
+  /* Code blocks */
+  .tiptap-editor .ProseMirror pre {
+    @apply bg-gray-900 text-gray-100 rounded-lg p-4 my-6 font-mono;
+  }
+
+  .tiptap-editor .ProseMirror pre code {
+    @apply bg-transparent p-0 text-sm text-gray-100;
+  }
+
+  /* Highlights */
+  .tiptap-editor .ProseMirror mark {
+    @apply bg-yellow-200 px-1 rounded;
+  }
+
+  /* Blockquotes */
+  .tiptap-editor .ProseMirror blockquote {
+    @apply border-l-4 border-gray-300 pl-4 my-6;
+  }
+
+  /* Horizontal rules */
+  .tiptap-editor .ProseMirror hr {
+    @apply border-0 border-t border-gray-200 my-8;
+  }
+}
